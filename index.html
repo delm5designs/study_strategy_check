@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <title>Study strategy check</title>
 <style>
-:root{--bg:#0d0d0b;--surface:#141412;--surface2:#1a1a17;--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);--text:#ede9e0;--text2:#8c897f;--text3:#4f4d47;--gold:#c8a45e;--gold2:rgba(200,164,94,.12);--green:#7aab8a;--rose:#b87878;
---serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+:root{--bg:#1B2440;--surface:#232D52;--surface2:#2B3660;--border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.12);--text:#EDEEF5;--text2:#9AA0C0;--text3:#5C6390;--gold:#B8934A;--gold2:rgba(184,147,74,.14);--sage:#7C8F6E;--rose:#B87878;
+--serif:'Fraunces','Iowan Old Style',Palatino,Georgia,serif;--sans:'IBM Plex Sans',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.55}
 .wrap{max-width:720px;margin:0 auto;padding:28px 20px 80px}
 h1,h2{font-family:var(--serif);font-weight:500;margin:0 0 8px}h1{font-size:28px}h2{font-size:22px}
@@ -19,7 +20,7 @@ p{margin:0 0 10px}.muted{color:var(--text2)}.small{font-size:13px}
 button.primary{font:inherit;cursor:pointer;background:var(--gold);color:#1a1509;border:1px solid var(--gold);border-radius:6px;padding:10px 16px;font-weight:600;margin-top:16px}
 .res{margin-top:10px}.res .line{padding:12px 0;border-bottom:1px solid var(--border)}.res .line:last-child{border-bottom:none}
 .tag{display:inline-block;font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--border2);margin-right:8px;color:var(--text2)}
-.tag.keep{color:var(--green);border-color:var(--green)}.tag.change{color:var(--rose);border-color:var(--rose)}.tag.add{color:var(--gold);border-color:var(--gold)}
+.tag.keep{color:var(--sage);border-color:var(--sage)}.tag.change{color:var(--rose);border-color:var(--rose)}.tag.add{color:var(--gold);border-color:var(--gold)}
 .foot{font-size:12px;color:var(--text3);margin-top:18px}
 .hidden{display:none}
 </style>
@@ -42,7 +43,7 @@ button.primary{font:inherit;cursor:pointer;background:var(--gold);color:#1a1509;
 const OPTS=['never','sometimes','usually','always'];
 const Q=[
  {s:'I re-read or re-watch material to revise it.',good:'low',
-  keep:'You rarely rely on re-reading. Good — it feels productive and mostly isn\'t.',
+  keep:'You rarely rely on re-reading. Good - it feels productive and mostly isn\'t.',
   change:'Re-reading is rated low-utility: it raises familiarity, not recall, and inflates confidence (Dunlosky et al. 2013; Koriat & Bjork 2005). Replace each re-read with a closed-book recall attempt.'},
  {s:'I highlight or underline as my main way of processing text.',good:'low',
   keep:'Highlighting isn\'t carrying your learning. Good.',
@@ -52,15 +53,15 @@ const Q=[
   change:'This is the biggest gap. Retrieval from memory beats restudy by a moderate effect across hundreds of studies (Adesope et al. 2017; Agarwal et al. 2021). Start with one closed-book recall per study session.'},
  {s:'I spread my practice on a topic across several days rather than doing it in one sitting.',good:'high',
   keep:'Spacing retrieval across days is worth about g = 0.74 over massing it (Latimier et al. 2021). Keep it.',
-  change:'Spaced retrieval beats massed retrieval by a large margin (g = 0.74; Latimier et al. 2021). Three short sessions across a week beat one long one. Uniform gaps are fine — don\'t bother engineering expanding intervals.'},
+  change:'Spaced retrieval beats massed retrieval by a large margin (g = 0.74; Latimier et al. 2021). Three short sessions across a week beat one long one. Uniform gaps are fine - don\'t bother engineering expanding intervals.'},
  {s:'Before reading something new, I write down questions I expect it to answer and guess the answers.',good:'high',
   keep:'Prequestions raise recall of the material you ask about (g = 0.54; St. Hilaire et al. 2024). Keep it, and ask about relationships, not just definitions.',
-  change:'Guessing before you read improves recall of what you guessed about (g = 0.54, St. Hilaire et al. 2024) — even when the guess is wrong. Two minutes of questions before a chapter is the cheapest technique on this list.'},
+  change:'Guessing before you read improves recall of what you guessed about (g = 0.54, St. Hilaire et al. 2024) - even when the guess is wrong. Two minutes of questions before a chapter is the cheapest technique on this list.'},
  {s:'After reading, I draw how the ideas connect (a map or diagram) without looking at the source.',good:'high',
   keep:'Constructing relational maps has a moderate effect on retention and transfer (g ≈ 0.7; Schroeder et al. 2018), and doing it closed-book makes it a retrieval act too. Keep it.',
-  change:'Building a map of how ideas relate — closed-book — combines generative encoding with retrieval (Schroeder et al. 2018; Karpicke & Blunt 2011). Try it once on a topic you\'re currently learning; label every link with the relationship.'},
+  change:'Building a map of how ideas relate - closed-book - combines generative encoding with retrieval (Schroeder et al. 2018; Karpicke & Blunt 2011). Try it once on a topic you\'re currently learning; label every link with the relationship.'},
  {s:'I judge how well I know something immediately after studying it.',good:'low',
-  keep:'You wait before judging. That\'s right — immediate judgments are inflated by what\'s still echoing.',
+  keep:'You wait before judging. That\'s right - immediate judgments are inflated by what\'s still echoing.',
   change:'Judgments made right after studying are systematically overconfident; judgments made after a delay track real recall much better (Rhodes 2016). Rate yourself at the start of the next session, not the end of this one.'},
  {s:'I mix up problem types or topics within a practice session.',good:'depends',
   keep:'Depends on the material. For confusable categories or problem types, mixing helps you tell them apart (Rohrer et al. 2020). For lists and vocabulary, blocking then spacing works better (Brunmair & Richter 2019).',
@@ -69,8 +70,8 @@ const Q=[
   keep:'You use a set break schedule. In a randomised comparison, pre-set breaks gave better concentration and mood than self-chosen ones, with the same amount done (Biwer et al. 2023).',
   change:'Self-chosen breaks tended to be longer and came with more fatigue and distraction; pre-set schedules (24 min / 6 min, or 12 / 3) did better on mood and concentration with equal output (Biwer et al. 2023). Pick one schedule and keep it.'},
  {s:'I choose study formats to match my "learning style" (visual, auditory, etc.).',good:'low',
-  keep:'You don\'t organise study around a learning style. Correct — matching format to style has no supported effect (Pashler et al. 2008).',
-  change:'Matching formats to a preferred style does not improve learning (Pashler et al. 2008). Use the format you enjoy for adherence, but pick techniques — retrieval, spacing, mapping — for effect.'},
+  keep:'You don\'t organise study around a learning style. Correct - matching format to style has no supported effect (Pashler et al. 2008).',
+  change:'Matching formats to a preferred style does not improve learning (Pashler et al. 2008). Use the format you enjoy for adherence, but pick techniques - retrieval, spacing, mapping - for effect.'},
  {s:'I have written if–then plans for what I\'ll do when I get stuck or distracted.',good:'high',
   keep:'Implementation intentions carry a medium-to-large effect on follow-through (d ≈ 0.65; Gollwitzer & Sheeran 2006). Keep them specific.',
   change:'"If [obstacle], then I will [action]" plans roughly double follow-through (d ≈ 0.65; Gollwitzer & Sheeran 2006). Write three for your real obstacles, in exactly that format.'},
@@ -89,7 +90,7 @@ document.getElementById('go').onclick=()=>{
     const tag=ok===null?'<span class="tag">depends</span>':ok?'<span class="tag keep">keep</span>':(q.good==='high'?'<span class="tag add">add</span>':'<span class="tag change">change</span>');
     if(ok)keep++;const txt=ok===null?(v>=2?q.keep:q.change):(ok?q.keep:q.change);
     r.innerHTML+=`<div class="line">${tag}<span class="small muted">${q.s}</span><div style="margin-top:6px">${txt}</div></div>`});
-  r.innerHTML=`<p><strong>${keep} of 11</strong> scoreable habits already point the right way. Start with the lines marked <em>add</em> — those are the techniques with the largest effects you're not yet using.</p>`+r.innerHTML;
+  r.innerHTML=`<p><strong>${keep} of 11</strong> scoreable habits already point the right way. Start with the lines marked <em>add</em> - those are the techniques with the largest effects you're not yet using.</p>`+r.innerHTML;
   document.getElementById('out').classList.remove('hidden');document.getElementById('out').scrollIntoView({behavior:'smooth'})};
 </script>
 </body>
